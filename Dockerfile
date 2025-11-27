@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies (including dev deps for Mastra)
+RUN npm ci
 
 # Copy source code
 COPY . .
@@ -16,8 +16,8 @@ COPY . .
 # Build TypeScript
 RUN npm run build
 
-# Expose port for Mastra Studio (if needed)
-EXPOSE 3000
+# Expose port - Railway will set PORT env variable
+EXPOSE ${PORT:-3000}
 
-# Default command - can be overridden
-CMD ["node", "dist/index.js"]
+# Run Mastra in production mode
+CMD ["sh", "-c", "npx mastra start --port ${PORT:-3000}"]
