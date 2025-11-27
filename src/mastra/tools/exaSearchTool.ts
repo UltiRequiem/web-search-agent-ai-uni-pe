@@ -54,18 +54,25 @@ export const exaWebSearch = createTool({
   ),
   execute: async ({ context }) => {
     try {
-      const { results } = await exa.searchAndContents(context.query, {
-        livecrawl: "always", // Always fetch latest content
+      const response = await exa.search(context.query, {
         numResults: context.numResults || 3,
+        useAutoprompt: true,
+        contents: {
+          text: true,
+        },
       });
 
-      return results.map((result) => ({
-        title: result.title,
-        url: result.url,
-        // Truncate content to first 1000 characters for efficiency
-        content: result.text.slice(0, 1000),
-        publishedDate: result.publishedDate,
-      }));
+      return response.results.map((result) => {
+        // Handle the result properly with type safety
+        const resultWithText = result as typeof result & { text?: string };
+        return {
+          title: result.title ?? null,
+          url: result.url,
+          // Truncate content to first 1000 characters for efficiency
+          content: (resultWithText.text || "No content available").slice(0, 1000),
+          publishedDate: result.publishedDate,
+        };
+      });
     } catch (error) {
       console.error("Error in Exa search:", error);
       throw new Error(
