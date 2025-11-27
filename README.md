@@ -59,6 +59,7 @@ Usa una integración personalizada con la API de Exa, un motor de búsqueda opti
 
 - **Node.js:** v20.0 o superior
 - **npm** o **yarn**
+- **Docker** (opcional, para ejecución en contenedores)
 - Claves API de al menos uno de los siguientes proveedores:
   - OpenAI (para GPT-4o-mini)
   - Google AI (para Gemini)
@@ -67,6 +68,8 @@ Usa una integración personalizada con la API de Exa, un motor de búsqueda opti
 ---
 
 ## Instalación
+
+### Opción 1: Instalación Local (Recomendado para desarrollo)
 
 ### 1. Clonar el repositorio
 
@@ -107,6 +110,18 @@ EXA_API_KEY=tu_clave_exa
 - **OpenAI:** https://platform.openai.com/api-keys
 - **Google AI:** https://aistudio.google.com/app/apikey
 - **Exa:** https://exa.ai/
+
+### Opción 2: Instalación con Docker (Recomendado para producción)
+
+Si prefieres usar Docker, consulta la [Guía de Docker](DOCKER.md) para instrucciones detalladas.
+
+```bash
+# Desarrollo con Docker
+docker-compose up web-search-agent-dev
+
+# Producción con Docker
+docker-compose up web-search-agent
+```
 
 ---
 
