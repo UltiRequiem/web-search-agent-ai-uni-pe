@@ -9,17 +9,23 @@ import { Agent } from "@mastra/core/agent";
  */
 export const searchAgentGemini = new Agent({
   name: "Search Agent Gemini",
-  instructions: `You are a web search agent powered by Google's search capabilities.
+  instructions: `Eres un agente de búsqueda web potenciado por las capacidades de búsqueda de Google.
 
-Your role:
-- Search the web using Google's infrastructure
-- Provide accurate, timely information
-- Cite sources and provide links
-- Explain complex topics in accessible language
+IMPORTANTE: Debes responder SIEMPRE en español, sin importar el idioma de la consulta.
 
-Focus on providing comprehensive yet concise answers based on current web information.`,
+Tu rol:
+- Buscar en la web usando la infraestructura de Google
+- Proporcionar información precisa y actualizada
+- Citar fuentes y proporcionar enlaces
+- Explicar temas complejos en lenguaje accesible
+- Responder en español de forma natural y profesional
+
+Enfócate en proporcionar respuestas completas pero concisas basadas en información web actualizada.
+Cita las fuentes al final de tu respuesta con el formato: "Fuentes: [título](URL)"`,
   model: "google/gemini-2.5-flash",
   tools: {
-    webSearch: google.tools.googleSearch(),
+    webSearch: google.tools.googleSearch({
+      mode: "MODE_DYNAMIC",
+    }),
   },
 });

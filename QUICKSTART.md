@@ -34,58 +34,41 @@ OPENAI_API_KEY=sk-...
 - Google AI: https://aistudio.google.com/app/apikey
 - Exa: https://exa.ai/
 
-## Paso 4: Probar el Agente
-
-### Opción A: Ejemplo Simple
+## Paso 4: Iniciar Mastra Studio (Playground)
 
 ```bash
-npm run example:simple
+npm run dev
 ```
 
-Esto ejecuta una búsqueda básica usando el agente de OpenAI.
+Esto abrirá **Mastra Studio** en http://localhost:3000
 
-### Opción B: Interfaz Visual (Mastra Studio)
+### Usar el Playground:
 
-```bash
-npm run mastra:dev
-```
+1. Abre tu navegador en http://localhost:3000
+2. Verás 3 agentes disponibles:
+   - **Search Agent OpenAI** (funciona con tu API key de OpenAI)
+   - **Search Agent Gemini** (requiere Google API key)
+   - **Search Agent Exa** (funciona con tu API key de Exa)
+3. Selecciona un agente
+4. ¡Empieza a hacer preguntas!
 
-Abre http://localhost:3000 en tu navegador.
+### Ejemplos de Consultas:
 
-### Opción C: Comparar Todos los Agentes
+- "¿Cuáles son las últimas noticias sobre IA?"
+- "¿Qué es la computación cuántica?"
+- "Explica la arquitectura de un procesador moderno"
 
-```bash
-npm run example:compare
-```
-
-Compara los resultados de OpenAI, Gemini y Exa.
+---
 
 ## Comandos Disponibles
 
 | Comando | Descripción |
 |---------|-------------|
-| `npm run dev` | Ejecuta el ejemplo principal |
-| `npm run mastra:dev` | Abre la interfaz visual |
-| `npm run example:simple` | Ejemplo de búsqueda simple |
-| `npm run example:compare` | Compara los 3 agentes |
-| `npm run build` | Compila el proyecto |
-| `npm start` | Ejecuta la versión compilada |
-
-## Modificar las Búsquedas
-
-### Cambiar la consulta en el ejemplo simple:
-
-Edita [src/examples/simple-search.ts](src/examples/simple-search.ts):
-
-```typescript
-const query = "Tu consulta aquí";
-```
-
-### Cambiar el agente:
-
-Reemplaza `searchAgentOpenAI` por:
-- `searchAgentGemini` - Para usar Google Gemini
-- `searchAgentExa` - Para usar Exa
+| `npm run dev` | **Inicia Mastra Studio (Recomendado)** |
+| `npm start` | Alias para `npm run dev` |
+| `npm run example:simple` | Ejemplo de búsqueda por código |
+| `npm run example:compare` | Compara los 3 agentes por código |
+| `npm run build` | Compila el proyecto TypeScript |
 
 ## Estructura de Archivos Importantes
 
