@@ -37,16 +37,19 @@ El sistema utiliza el framework **Mastra** junto con modelos de lenguaje avanzad
 El proyecto implementa tres agentes diferentes, cada uno con distintas estrategias de búsqueda:
 
 ### 1. Search Agent OpenAI
+
 Utiliza las herramientas nativas de búsqueda web de GPT-4o-mini.
 
 **Ubicación:** [src/mastra/agents/searchAgentOpenAI.ts](src/mastra/agents/searchAgentOpenAI.ts)
 
 ### 2. Search Agent Gemini
+
 Aprovecha las capacidades de búsqueda integradas de Google Gemini 2.5 Flash.
 
 **Ubicación:** [src/mastra/agents/searchAgentGemini.ts](src/mastra/agents/searchAgentGemini.ts)
 
 ### 3. Search Agent Exa
+
 Usa una integración personalizada con la API de Exa, un motor de búsqueda optimizado para aplicaciones de IA.
 
 **Ubicación:** [src/mastra/agents/searchAgentExa.ts](src/mastra/agents/searchAgentExa.ts)
@@ -146,6 +149,7 @@ npm run mastra:dev
 ```
 
 Esto abrirá una interfaz web en `http://localhost:3000` donde podrás:
+
 - Seleccionar entre los diferentes agentes
 - Hacer consultas en tiempo real
 - Ver los resultados de manera interactiva
@@ -197,6 +201,7 @@ El proceso de rastreo web (web crawling) implica navegar automáticamente por p�
 ### Procesamiento del Lenguaje Natural (NLP)
 
 Los modelos de lenguaje utilizados en este proyecto son capaces de:
+
 - Entender el contexto de las consultas
 - Generar respuestas coherentes
 - Resumir información compleja
@@ -205,6 +210,7 @@ Los modelos de lenguaje utilizados en este proyecto son capaces de:
 ### Arquitectura Cliente-Servidor
 
 El sistema sigue un modelo cliente-servidor donde:
+
 - **Cliente:** El usuario que hace consultas
 - **Servidor:** El agente de IA que procesa las solicitudes
 - **APIs externas:** Servicios de búsqueda (OpenAI, Google, Exa)
@@ -275,14 +281,14 @@ const result = await mastra.agents.searchAgentExa.text({
 
 ## Comparación de Estrategias
 
-| Característica | OpenAI Native | Gemini Native | Exa Custom |
-|---------------|---------------|---------------|------------|
-| Configuración | Simple | Simple | Requiere API key |
-| Control | Limitado | Limitado | Alto |
-| Filtros | No | No | Sí (dominio, fecha) |
-| Contenido completo | Limitado | Limitado | Sí |
-| Velocidad | Rápida | Rápida | Configurable |
-| Costo | Por uso OpenAI | Por uso Google | Por uso Exa |
+| Característica     | OpenAI Native  | Gemini Native  | Exa Custom          |
+| ------------------ | -------------- | -------------- | ------------------- |
+| Configuración      | Simple         | Simple         | Requiere API key    |
+| Control            | Limitado       | Limitado       | Alto                |
+| Filtros            | No             | No             | Sí (dominio, fecha) |
+| Contenido completo | Limitado       | Limitado       | Sí                  |
+| Velocidad          | Rápida         | Rápida         | Configurable        |
+| Costo              | Por uso OpenAI | Por uso Google | Por uso Exa         |
 
 ---
 
