@@ -1,5 +1,7 @@
 # Agente de Búsqueda Web mediante Inteligencia Artificial
 
+Este repo se movio al repo con todas mis cosas de la universidad: https://github.com/UltiRequiem/uni-cs-pe
+
 **Universidad Nacional de Ingeniería**
 **Curso:** Arquitectura de Computadoras
 **Grupo:** 2
